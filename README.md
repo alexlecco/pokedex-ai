@@ -13,6 +13,8 @@ A native iOS Pokédex app that uses your iPhone camera to scan and identify Gene
 - **Pokémon Cries** — Authentic cries from PokéAPI's audio archive
 - **Classic Sounds** — Pokédex beeps and scan sounds on every interaction
 
+  <img width="752" height="564" alt="image" src="https://github.com/user-attachments/assets/f6e0348f-22f4-42cf-a4b8-4e2e646fab5c" />
+
 ## Requirements
 
 - iOS 17.0+
