@@ -28,7 +28,7 @@ actor PokemonRecognizer {
         isBuilding = true
 
         for id in 1...151 {
-            guard let url = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/\(id).png"),
+            guard let url = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"),
                   let data = try? Data(contentsOf: url),
                   let image = UIImage(data: data),
                   let cgImage = image.cgImage else {

@@ -1,13 +1,15 @@
 import AVFoundation
 import UIKit
 import Foundation
+import Observation
 
 // MARK: - Camera Manager
+@Observable
 @MainActor
-final class CameraManager: NSObject, ObservableObject {
-    @Published var isAuthorized = false
-    @Published var capturedImage: UIImage?
-    @Published var isRunning = false
+final class CameraManager: NSObject {
+    var isAuthorized = false
+    var capturedImage: UIImage?
+    var isRunning = false
 
     private var captureSession: AVCaptureSession?
     private var photoOutput: AVCapturePhotoOutput?

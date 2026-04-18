@@ -16,6 +16,12 @@ struct PokedexHomeView: View {
             }
         }
         .task { await viewModel.prepareDatabase() }
+        .onChange(of: cameraManager.capturedImage) { _, newImage in
+            if let img = newImage {
+                viewModel.processPhoto(img)
+                cameraManager.capturedImage = nil
+            }
+        }
         .sheet(isPresented: $viewModel.showDetail) {
             if let data = viewModel.detectedPokemon {
                 PokemonDetailView(
@@ -484,9 +490,6 @@ struct PokedexHomeView: View {
     private func capturePhoto() {
         cameraManager.capturePhoto()
         PokedexSoundManager.shared.playSound(.scan)
-        if let img = cameraManager.capturedImage {
-            viewModel.processPhoto(img)
-        }
     }
 
     private func animateScanLine(height: CGFloat) {

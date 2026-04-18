@@ -85,7 +85,10 @@ final class PokedexSoundManager: NSObject {
         for frame in 0..<Int(frameCount) {
             let t = Float(frame) / sampleRate
             // Apply simple envelope (fade in/out)
-            let envelope = min(t * 20, 1.0) * min((sound.duration - Double(t)) * 20, 1.0)
+            let fadeIn = min(t * 20, 1.0 as Float)
+            let remainingTime = Float(sound.duration) - t
+            let fadeOut = min(remainingTime * 20, 1.0 as Float)
+            let envelope = fadeIn * fadeOut
             channelData[frame] = amplitude * Float(envelope) * sin(2.0 * .pi * frequency * t)
         }
 
